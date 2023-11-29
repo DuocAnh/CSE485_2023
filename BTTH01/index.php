@@ -42,6 +42,6 @@
     <?php require './layout/footer.php' ?>
   </div>
 </body>
-<?php mysqli_close($strConnection) ?>
+<?php mysqli_close($strConnection)?>
 
 </html>
