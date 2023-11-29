@@ -5,7 +5,6 @@ SELECT * FROM theloai
 SELECT * FROM baiviet
 
 
--- 3. Thực hiện các yêu cầu truy vấn sau:
 -- a. Liệt kê các bài viết về các bài hát thuộc thể loại Nhạc trữ tình (2 đ)
 SELECT *
 FROM baiviet INNER JOIN theloai ON baiviet.ma_tloai = theloai.ma_tloai
