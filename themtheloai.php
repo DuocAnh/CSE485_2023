@@ -8,7 +8,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Cần tùy chỉnh phần này để phù hợp với cấu trúc và quy tắc lưu trữ của bạn
 
     // Kết nối đến cơ sở dữ liệu
-    $db = new PDO('mysql:host=localhost;dbname=ten_cua_csdl', 'tai_khoan', 'mat_khau');
+    $strConnection = mysqli_connect('localhost', 'root', '', 'btth01_cse485');
 
     // Chuẩn bị truy vấn INSERT
     $query = "INSERT INTO theloai (ten_tloai) VALUES (:ten_tloai)";
