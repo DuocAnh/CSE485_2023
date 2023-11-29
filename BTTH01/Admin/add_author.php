@@ -21,13 +21,13 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <h2 class="text-center my-3">THÊM MỚI THỂ LOẠI</h2>
-                    <form method="POST" action="process_add_category.php">
+                    <h2 class="text-center my-3">THÊM MỚI TÁC GIẢ</h2>
+                    <form method="POST" action="process_add_author.php">
                         <div class="input-group my-3">
                             <div class="input-group-append">
-                                <span class="input-group-text" id="basic-addon2">Tên thể loại</span>
+                                <span class="input-group-text" id="basic-addon2">Tên tác giả</span>
                             </div>
-                            <input type="text" class="form-control" name="ten_tloai" placeholder="Nhập tên thể loại">
+                            <input type="text" class="form-control" name="ten_tgia" placeholder="Nhập tên tác giả">
                         </div>
 
                         <div class="btn__wrapper text-right">
@@ -35,7 +35,7 @@
                                 <span class="text-white">Thêm mới</span>
                             </button>
                             <button class="bg-warning border-0 font-weight-bold rounded-lg px-3 py-2 my-3">
-                                <a href="./category.php" class="text-white">Quay lại</a>
+                                <a href="./author.php" class="text-white">Quay lại</a>
                             </button>
                         </div>
                     </form>

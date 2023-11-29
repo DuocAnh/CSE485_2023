@@ -21,26 +21,26 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <h2 class="text-center my-3">SỬA THÔNG TIN THỂ LOẠI</h2>
-                    <form method="POST" action="process_edit_category.php">
+                    <h2 class="text-center my-3">SỬA THÔNG TIN TÁC GIẢ</h2>
+                    <form method="POST" action="process_edit_author.php">
                         <?php
-                        if (isset($_GET['ma_tloai'])) {
-                            $maTloai = $_GET['ma_tloai'];
-                            $query = "SELECT * FROM theloai WHERE ma_tloai = '$maTloai'";
-                            $categorys = mysqli_query($strConnection, $query);
-                            $category = mysqli_fetch_array($categorys);
-                        ?>
+                        if (isset($_GET['ma_tgia'])) {
+                            $maTgia = $_GET['ma_tgia'];
+                            $query = "SELECT * FROM tacgia WHERE ma_tgia = '$maTgia'";
+                            $authors = mysqli_query($strConnection, $query);
+                            $author = mysqli_fetch_array($authors);
+                        ?>tacgia
                             <div class="input-group my-3">
                                 <div class="input-group-append">
-                                    <span class="input-group-text" id="basic-addon2">Mã thể loại</span>
+                                    <span class="input-group-text" id="basic-addon2">Mã tác giả</span>
                                 </div>
-                                <input type="text" class="form-control" name="ma_tloai" value="<?= $category['ma_tloai'] ?>">
+                                <input type="text" class="form-control" name="ma_tgia" value="<?= $author['ma_tgia'] ?>">
                             </div>
                             <div class="input-group my-3">
                                 <div class="input-group-append">
-                                    <span class="input-group-text" id="basic-addon2">Tên thể loại</span>
+                                    <span class="input-group-text" id="basic-addon2">Tên tác giả</span>
                                 </div>
-                                <input type="text" class="form-control" name="ten_tloai" value="<?= $category['ten_tloai'] ?>">
+                                <input type="text" class="form-control" name="ten_tgia" value="<?= $author['ten_tgia'] ?>">
                             </div>
                         <?php } ?>
 
@@ -49,7 +49,7 @@
                                 <span class="text-white">Lưu lại</span>
                             </button>
                             <button class="bg-warning border-0 font-weight-bold rounded-lg px-3 py-2 my-3">
-                                <a href="./category.php" class="text-white">Quay lại</a>
+                                <a href="./author.php" class="text-white">Quay lại</a>
                             </button>
                         </div>
                     </form>

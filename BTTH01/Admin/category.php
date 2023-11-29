@@ -1,91 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Music for Life</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="css/style_login.css">
-</head>
-<body>
-    <header>
-        <nav class="navbar navbar-expand-lg bg-body-tertiary shadow p-3 bg-white rounded">
-            <div class="container-fluid">
-                <div class="h3">
-                    <a class="navbar-brand" href="#">Administration</a>
-                </div>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="./">Trang chủ</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="../index.php">Trang ngoài</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active fw-bold" href="category.php">Thể loại</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="author.php">Tác giả</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="article.php">Bài viết</a>
-                    </li>
-                </ul>
-                </div>
-            </div>
-        </nav>
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+    <style>
+        .nav-item.active {
+            font-weight: bold;
+        }
+    </style>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- Popper.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <!-- Bootstrap JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-    </header>
-    <main class="container mt-5 mb-5">
-        <!-- <h3 class="text-center text-uppercase mb-3 text-primary">CẢM NHẬN VỀ BÀI HÁT</h3> -->
-        <div class="row">
-            <div class="col-sm">
-                <a href="add_category.php" class="btn btn-success">Thêm mới</a>
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">Tên thể loại</th>
-                            <th>Sửa</th>
-                            <th>Xóa</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>Nhạc trữ tình</td>
-                            <td>
-                                <a href="edit_category.php?id=1"><i class="fa-solid fa-pen-to-square"></i></a>
-                            </td>
-                            <td>
-                                <a href=""><i class="fa-solid fa-trash"></i></a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope="row">2</th>
-                            <td>Nhạc cách mạng</td>
-                            <td>
-                                <a href="edit_category.php?id=2"><i class="fa-solid fa-pen-to-square"></i></a>
-                            </td>
-                            <td>
-                                <a href=""><i class="fa-solid fa-trash"></i></a>
-                            </td>
-                        </tr>
-                       
-                    </tbody>
-                </table>
+</head>
+
+<body>
+    <?php require '../connect.php' ?>
+    <?php require '../layout/navigation.php' ?>
+    <main>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <button class="bg-success border-0 font-weight-bold rounded-lg px-3 py-2 my-3"><a href="./add_category.php" class="text-white">Thêm mới</a></button>
+
+                    <table class="table">
+                        <?php
+                        $query = "SELECT * FROM theloai";
+                        $posts = mysqli_query($strConnection, $query);
+
+                        // Check if there are any rows returned from the query
+                        if (mysqli_num_rows($posts) > 0) {
+                        ?>
+                            <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Tên thể loại</th>
+                                    <th scope="col">Sửa</th>
+                                    <th scope="col">Xóa</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php
+                                while ($p = mysqli_fetch_array($posts)) {
+                                ?>
+                                    <tr>
+                                        <th scope="row"><?= $p['ma_tloai'] ?></th>
+                                        <td><?= $p['ten_tloai'] ?></td>
+                                        <td><a href="./edit_category.php?ma_tloai=<?= $p['ma_tloai'] ?>"><i class="bi bi-pencil-square"></i></a></td>
+                                        <td><a id="delete-icon" href="./process_delete_category.php?ma_tloai=<?= $p['ma_tloai']?>"><i class="bi bi-trash"></i></a></td>
+                                    </tr>
+                                <?php
+                                }
+                                ?>
+                            </tbody>
+                        <?php
+                        }
+                        ?>
+                    </table>
+
+                </div>
             </div>
         </div>
     </main>
-    <footer class="bg-white d-flex justify-content-center align-items-center border-top border-secondary  border-2" style="height:80px">
-        <h4 class="text-center text-uppercase fw-bold">TLU's music garden</h4>
-    </footer>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    <?php require '../layout/footer.php' ?>
+
 </body>
+<?php mysqli_close($strConnection) ?>
+<script src="../assets/js/admin.js"></script>
+
 </html>
