@@ -1,6 +1,6 @@
 <?php
 // Kết nối đến cơ sở dữ liệu
-$db = new PDO('mysql:host=localhost;dbname=ten_cua_csdl', 'tai_khoan', 'mat_khau');
+$strConnection = mysqli_connect('localhost', 'root', '', 'btth01_cse485');
 
 // Xử lý khi người dùng xác nhận xóa thể loại
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
