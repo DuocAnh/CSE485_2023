@@ -90,5 +90,21 @@ DROP VIEW vw_Music
 SELECT * FROM vw_Music;
 
 -- j. Tạo 1 thủ tục có tên sp_DSBaiViet với tham số truyền vào là Tên thể loại và trả về danh sách Bài viết của thể loại đó. Nếu thể loại không tồn tại thì hiển thị thông báo lỗi. (2 đ)
+DELIMITER //
+
+CREATE PROCEDURE sp_DSBaiViet(IN ten_tloai varchar(100))
+BEGIN
+    DECLARE ma_tloai int;
+    SELECT theloai.ma_tloai INTO ma_tloai FROM theloai WHERE theloai.ten_tloai = ten_tloai;
+    IF ma_tloai IS NULL THEN
+        SELECT "Không tồn tại " AS Message;
+    ELSE
+        SELECT * FROM baiviet WHERE baiviet.ma_tloai = ma_tloai;
+    END IF;
+END //
+
+DELIMITER ;
+
+CALL sp_DSBaiViet('Nhạc trữ tình');
 
 -- k. Thêm mới cột SLBaiViet vào trong bảng theloai. Tạo 1 trigger có tên tg_CapNhatTheLoai để khi thêm/sửa/xóa bài viết thì số lượng bài viết trong bảng theloai được cập nhật theo. (2 đ)
