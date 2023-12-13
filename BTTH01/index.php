@@ -21,7 +21,7 @@
       <div class="row">
         <div class="col-md-12 p-0">
           <div class="body__wrapped">
-            <img class="w-100" src="./assets/img/thumbnail.jpg" alt="">
+            <img class="w-100" src="./images/slideshow/slide01.jpg" alt="">
           </div>
           <h3 class="text-center text-primary text-uppercase mt-2 fw-normal">Top bài hát yêu thích</h3>
         </div>

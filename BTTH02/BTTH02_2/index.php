@@ -6,7 +6,7 @@ $db = $database->getConnection();
 
 $article = new Articles($db);
 
-$article->id = 0;
+// $article->id = 0;
 
 $result = $article->getArticles();
 
